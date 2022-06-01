@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Agent</title>
+</head>
+<body>	
+	<h2>Request Agent Outdial</h2>
+	<hr>
+	<div>
+		<input id="login" type="text" placeholder="Agent login">
+		<select id='outdial-anis'>
+		</select>
+		<input id="dnis" type="text" placeholder="Phone number">
+		<button id="make-call" onclick="makeCall()">Call</button>
+		<div id="response">
+		</div>	
+	</div>
+	<script>
+		var sel = document.getElementById('outdial-anis');
+		var opt = document.createElement('option');						
+		opt.value = null;
+		opt.text = ' -- Select ANI (Optional) --';				
+		sel.options.add(opt);	
+		
+		fetch('/outdial/anis/wccaiOutdialAnis', {
+			method: 'get',
+			accept: 'application/json'
+		})
+		.then(resp => resp.json())
+		.then(data => {
+			console.log('data', data);
+			var anis = data.anis;
+			
+			if(anis !== null) {
+				for(var i = 0; i < anis.length; i++) {				
+					var opt = document.createElement('option');						
+					opt.value = anis[i].id;
+					opt.text = anis[i].name;				
+					sel.options.add(opt);
+				}
+			}
+		});
+		
+		function makeCall() {
+			const request = {};
+			request.login = document.getElementById('login').value;
+			request.ani = sel.value;
+			request.dnis = document.getElementById('dnis').value;
+			
+			console.log('request', request);
+			
+			fetch('/outdial/request', {
+				method: 'post',
+				headers: {
+					'content-type': 'application/json'
+				},
+				body: JSON.stringify(request)			
+			})
+			.then(resp => resp.text())
+			.then(data => {
+				console.log('response data', data);
+			})
+			.catch(error => {
+				console.log('error', error);
+			});
+		}
+	</script>
+	
+</body>
+</html>
