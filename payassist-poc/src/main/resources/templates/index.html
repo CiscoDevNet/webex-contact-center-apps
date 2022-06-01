@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymleaf.org">
+<head>
+	<meta charset="ISO-8859-1" name="viewport" content="width=device-width, initial-scale=1">
+	<title>Base Index</title>
+	<!-- link rel="stylesheet" href="css/momentum-ui.min.css"-->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<style>
+		html {
+			width: 100%;
+			height: 100%;
+		}
+		body {
+			background-color: var(--md-primary-success-bg-color);
+		}
+		section {
+			overflow: auto;
+		}
+		section.header {
+			width: 100%;
+			height: 200px;
+		  	margin-top: 0 !important;
+		  	padding-top: 0 !important;
+		  	background-color: lightblue;
+		}
+		section.left {
+			float: left;
+			width: 100px;
+			background-color: lightgreen;
+		}
+		section.right {
+			margin-top: 10 !important;
+			background-color: lightorange;
+		}	
+	</style>
+</head>
+<body>
+	<section class="header">
+		<h4>WxCC Agent Desktop</h4>
+	</section>
+	<section class="left">
+		<h4>Widgets</h4>
+	</section>
+	<section class="right">		
+		<div class="container-fluid">
+		  <ul class="nav nav-tabs">
+		    <li class="active"><a data-toggle="tab" href="#account">Account</a></li>
+		    <li><a data-toggle="tab" href="#order">Orders</a></li>
+		    <li><a data-toggle="tab" href="#payment">Payment</a></li>
+		  </ul>
+		
+		  <div class="tab-content">
+		    <div id="account" class="tab-pane fade in active">
+		      	<script type="module" src="desktop/widget/account/account-widget-bundle.js"></script>
+				<account-detail serviceUrl="https://ccaipayassist.pstestsite.com" 
+								profile="account" ani="+14085551001" isDarkMode="false"></account-detail>
+		    </div>
+		    <div id="order" class="tab-pane fade">		      
+		      	<script type="module" src="desktop/widget/order/order-widget-bundle.js"></script>
+				<order-detail serviceUrl="https://ccaipayassist.pstestsite.com" 
+								profile="account" ani="+14085551001" isDarkMode="false"></order-detail>
+		    </div>
+		    <div id="payment" class="tab-pane fade">
+		      	<script type="module" src="external/payment/payment-external-bundle.js"></script>
+				<customer-payment serviceUrl="https://ccaipayassist.pstestsite.com" 
+								profile="braintree"></customer-payment>
+		    </div>
+		  </div>
+		</div>
+	</section>	
+</body>
+</html>

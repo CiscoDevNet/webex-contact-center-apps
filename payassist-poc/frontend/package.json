@@ -1,0 +1,27 @@
+{
+	"dependencies": {
+		"@wxcc-desktop/sdk": "^1.2.8",
+		"braintree-web": "^3.78.3",
+		"stompjs": "^2.3.3"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.14.6",
+		"@babel/preset-env": "^7.14.7",
+		"babelify": "^10.0.0",
+		"browserify": "^17.0.0"
+	},
+	"browserify": {
+		"transform": [
+			[
+				"babelify",
+				{
+					"presets": [
+						"@babel/preset-env"
+					]
+				}
+			]
+		]
+	},
+	"scripts": {		
+	}
+}
