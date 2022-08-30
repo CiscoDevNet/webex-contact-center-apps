@@ -1,5 +1,0 @@
-gcloud app deploy target/agent-outdial-1.0.jar --appyaml=src/main/appengine/app.yaml --version=20220516t094233
-
-gcloud app browse -s agent-outdial
-
-https://agent-outdial-dot-webexcc-egsots.appspot.com/client.html

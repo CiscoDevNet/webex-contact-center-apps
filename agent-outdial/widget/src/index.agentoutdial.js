@@ -29,13 +29,13 @@ class AgentOutdialWidget extends HTMLElement {
 			console.log('[AgentOutdial]', 'agentLogin', this.agentLogin);	
 			console.log('[AgentOutdial]', 'aniListName', this.aniListName);		
 			console.log('[AgentOutdial]', 'outdialEp', this.outdialEp);
-				
-			Desktop.agentContact.addEventListener("eAgentContactAssigned", msg => {
-				console.log('[AgentOutdial]', 'eAgentContactAssigned', msg);			
-				console.log('[AgentOutdial]', 'interactionId', msg.data.interactionId);	
-			});
+			
 			Desktop.agentContact.addEventListener("eAgentOfferContact", msg => {
 				console.log('[AgentOutdial]', 'eAgentOfferContact', msg);			
+				console.log('[AgentOutdial]', 'interactionId', msg.data.interactionId);	
+			});
+			Desktop.agentContact.addEventListener("eAgentContactAssigned", msg => {
+				console.log('[AgentOutdial]', 'eAgentContactAssigned', msg);			
 				console.log('[AgentOutdial]', 'interactionId', msg.data.interactionId);	
 			});
 			
