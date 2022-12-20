@@ -17,20 +17,20 @@ public class SmtpApiService {
 	
 	private static final Logger logger = LoggerFactory.getLogger(SmtpApiService.class);
 
-	// Replace sender@example.com with your "From" address.
+    // Replace sender@example.com with your "From" address.
     // This address must be verified.
-    static final String FROM = "webexccps@cisco.com";
-    static final String FROMNAME = "WebexCCPS";
+    static final String FROM = "";
+    static final String FROMNAME = "";
 	
     // Replace recipient@example.com with a "To" address. If your account 
     // is still in the sandbox, this address must be verified.
-    static final String TO = "songuyen@gmail.com";
+    static final String TO = "";
     
     // Replace smtp_username with your Amazon SES SMTP user name.
-    static final String SMTP_USERNAME = "AKIAWRBVTTFC47YG6YUE";
+    static final String SMTP_USERNAME = "";
     
     // Replace smtp_password with your Amazon SES SMTP password.
-    static final String SMTP_PASSWORD = "BOm1RmZoMz7bfLCU9M3OCAg5j5ku+pEgDCd6jl+vc2rI";
+    static final String SMTP_PASSWORD = "";
     
     // The name of the Configuration Set to use for this message.
     // If you comment out or remove this variable, you will also need to
